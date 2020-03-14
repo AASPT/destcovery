@@ -1,0 +1,77 @@
+
+Admin@BLT201 MINGW64 /d/Final_proj
+$ git config --global user.name 'Prasanna-chandorkar'
+
+Admin@BLT201 MINGW64 /d/Final_proj
+$ git config --global user.email 'prasanna03chandorkar@gmail.com'
+
+Admin@BLT201 MINGW64 /d/Final_proj
+$ git clone https://github.com/AASPT/destcovery.git
+Cloning into 'destcovery'...
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 18 (delta 6), reused 14 (delta 2), pack-reused 0
+Unpacking objects: 100% (18/18), 2.24 KiB | 5.00 KiB/s, done.
+
+Admin@BLT201 MINGW64 /d/Final_proj
+$ cd destcovery
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (master)
+$ git pull origin master
+From https://github.com/AASPT/destcovery
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (master)
+$ git checkout prasanna
+Switched to a new branch 'prasanna'
+Branch 'prasanna' set up to track remote branch 'prasanna' from 'origin'.
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (prasanna)
+$ ls
+prasanna.html  rat
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (prasanna)
+$ git status
+On branch prasanna
+Your branch is up to date with 'origin/prasanna'.
+
+nothing to commit, working tree clean
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (prasanna)
+$ touch newpc.txt
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (prasanna)
+$ git add .
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (prasanna)
+$ git status
+On branch prasanna
+Your branch is up to date with 'origin/prasanna'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   newpc.txt
+
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (prasanna)
+$ git commit -m 'firstcommit'
+[prasanna d82544b] firstcommit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 newpc.txt
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (prasanna)
+$ git push -u origin prasanna
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 261 bytes | 261.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To https://github.com/AASPT/destcovery.git
+   faf1ec8..d82544b  prasanna -> prasanna
+Branch 'prasanna' set up to track remote branch 'prasanna' from 'origin'.
+
+Admin@BLT201 MINGW64 /d/Final_proj/destcovery (prasanna)
+$
