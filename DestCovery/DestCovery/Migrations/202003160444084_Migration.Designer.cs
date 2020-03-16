@@ -7,13 +7,13 @@ namespace DestCovery.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class database_creation : IMigrationMetadata
+    public sealed partial class Migration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(database_creation));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Migration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003141149566_database_creation"; }
+            get { return "202003160444084_Migration"; }
         }
         
         string IMigrationMetadata.Source

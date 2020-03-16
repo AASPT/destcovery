@@ -3,7 +3,7 @@ namespace DestCovery.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class database_creation : DbMigration
+    public partial class Migration : DbMigration
     {
         public override void Up()
         {
@@ -81,7 +81,7 @@ namespace DestCovery.Migrations
                         Tour_End_Date = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Tour_Id)
-                .ForeignKey("dbo.Package_Master", t => t.Package_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Package_Master", t => t.Package_Id, cascadeDelete: false)
                 .Index(t => t.Package_Id);
             
             CreateTable(

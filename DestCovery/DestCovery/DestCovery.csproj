@@ -102,9 +102,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003141149566_database_creation.cs" />
-    <Compile Include="Migrations\202003141149566_database_creation.Designer.cs">
-      <DependentUpon>202003141149566_database_creation.cs</DependentUpon>
+    <Compile Include="Migrations\202003160444084_Migration.cs" />
+    <Compile Include="Migrations\202003160444084_Migration.Designer.cs">
+      <DependentUpon>202003160444084_Migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin_Info.cs" />
@@ -133,8 +133,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003141149566_database_creation.resx">
-      <DependentUpon>202003141149566_database_creation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003160444084_Migration.resx">
+      <DependentUpon>202003160444084_Migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
