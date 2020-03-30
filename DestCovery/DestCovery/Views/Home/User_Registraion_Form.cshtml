@@ -1,0 +1,99 @@
+﻿@model DestCovery.Models.User_Info
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>User_Registraion_Form</title>
+
+
+
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link href="~/Scripts/User_Registration_Form_style.css" rel="stylesheet" />
+
+</head>
+<body>
+
+            
+                    
+                        @using (Html.BeginForm("User_Registraion_Form", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+
+                            <div class="form-group">
+                                <label>User ID :</label>@Html.TextBoxFor(x => x.User_Id, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>User Image :</label>@Html.Hidden("User_Image")
+                                <input type="file" name="postedFile" />
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Your Name:</label>@Html.TextBoxFor(x => x.User_Name, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Your Email:</label>@Html.TextBoxFor(x => x.User_Email, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Your Password:</label>@Html.PasswordFor(x => x.User_Password, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Your Address:</label>@Html.TextBoxFor(x => x.User_Address, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Your Dob:</label>@Html.TextBoxFor(x => x.User_Dob, new { @class = "form-control" })
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Your Aadhar:</label>@Html.TextBoxFor(x => x.User_Aadhar, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Your Mobile:</label>@Html.TextBoxFor(x => x.User_Mobile, new { @class = "form-control" })
+                            </div>
+
+                            <div class="text-center">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+
+                        }
+                   
+
+              
+        
+
+   
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('input[type="file"]').change(function (e) {
+                    var fileName = e.target.files[0].name;
+                    alert('The file "' + fileName + '" has been selected.');
+
+                    console.log(fileName);
+
+                    document.getElementById("User_Image").value = "Uploads/User_Uploaded_Image/" + fileName;
+
+                });
+            });
+        </script>
+
+</body>
+
