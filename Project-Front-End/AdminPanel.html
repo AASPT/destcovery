@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+<style>
+    body{
+        background-image: url(ver.jpg);
+    }
+    .navbar-inverse
+{
+    background:#336699;
+    border-bottom-color: #004D40;
+}
+.navbar-inverse .navbar-nav>li>a,.navbar-inverse .navbar-brand,.navbar-inverse .navbar-nav>.dropdown>a .caret
+{
+    color: #fff;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus,
+.navbar-nav>li>.dropdown-menu
+{
+    background:#4DB6AC;
+}
+
+
+
+.nav>li>a:hover, .nav>li>a:focus
+{
+    background-color: #EEEEEE;
+    font-size: medium;
+}
+
+</style>
+</head>
+<body>
+
+    <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+        
+        <div class="container-fluid">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ADMIN DASHBOARD</a>
+            </div>    
+                  
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#"><i class="fa fa-user-circle"></i> Admin <span class="caret"></span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+    
+    <!-- /Header -->
+    
+    <!-- Main -->
+    
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+    
+        <ul class="nav nav-pills nav-stacked" style="border-right:1px solid white">
+            <!--<li class="nav-header"></li>-->
+            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <br>
+            <li><a href="#"><i class="fa fa-user"></i> User Information</a></li>
+            <br>
+            <li><a href="#"><i class="fa fa-history"></i> Bookings</a></li>
+            <br>
+            <li><a href="#"><i class="fa fa-plane"></i> Package & Tours</a></li>
+            <br>
+            <li><a href="#"><i class="fa fa-commenting"></i> Testimonials</a></li>
+            <br>
+            <li><a href="#"><i class="fa fa-address-card"></i> About Us</a></li>
+            <br>
+            <li><a href="#"><i class="fa fa-sign-out"></i> Exit</a></li>
+    
+        </ul>
+    </div><!-- /span-3 -->
+    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+        <!-- Right -->
+    
+        <a href="#"><strong><span class="fa fa-dashboard" style="font-size: medium;"></span> My Dashboard</strong></a>
+        <hr>
+    </div>
+</body>
+</html>
