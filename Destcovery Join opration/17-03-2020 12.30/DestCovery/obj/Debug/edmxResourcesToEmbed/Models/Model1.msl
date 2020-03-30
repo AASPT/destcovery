@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DestCoveryContextModelStoreContainer" CdmEntityContainer="DestCoveryContextEntities1">
+    <EntitySetMapping Name="Admin_Info">
+      <EntityTypeMapping TypeName="DestCoveryContextModel.Admin_Info">
+        <MappingFragment StoreEntitySet="Admin_Info">
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Admin_Name" ColumnName="Admin_Name" />
+          <ScalarProperty Name="Admin_Email" ColumnName="Admin_Email" />
+          <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+          <ScalarProperty Name="Admin_Mobile" ColumnName="Admin_Mobile" />
+          <ScalarProperty Name="Admin_Status" ColumnName="Admin_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="DestCoveryContextModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="Booking_Id" ColumnName="Booking_Id" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="Tour_Id" ColumnName="Tour_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Persons_Enrolled" ColumnName="Persons_Enrolled" />
+          <ScalarProperty Name="Price_Per_Person" ColumnName="Price_Per_Person" />
+          <ScalarProperty Name="Estimated_Price" ColumnName="Estimated_Price" />
+          <ScalarProperty Name="Booking_Date" ColumnName="Booking_Date" />
+          <ScalarProperty Name="Booking_Status" ColumnName="Booking_Status" />
+          <ScalarProperty Name="fk_for_Spot_Id_Spot_Id" ColumnName="fk_for_Spot_Id_Spot_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package_Grid_Image">
+      <EntityTypeMapping TypeName="DestCoveryContextModel.Package_Grid_Image">
+        <MappingFragment StoreEntitySet="Package_Grid_Image">
+          <ScalarProperty Name="Package_GridImg_Id" ColumnName="Package_GridImg_Id" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="Package_GridImg" ColumnName="Package_GridImg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package_Master">
+      <EntityTypeMapping TypeName="DestCoveryContextModel.Package_Master">
+        <MappingFragment StoreEntitySet="Package_Master">
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="Package_Name" ColumnName="Package_Name" />
+          <ScalarProperty Name="Package_Tagline" ColumnName="Package_Tagline" />
+          <ScalarProperty Name="Package_Description" ColumnName="Package_Description" />
+          <ScalarProperty Name="Package_Price" ColumnName="Package_Price" />
+          <ScalarProperty Name="Package_Total_Travellers" ColumnName="Package_Total_Travellers" />
+          <ScalarProperty Name="Package_Status" ColumnName="Package_Status" />
+          <ScalarProperty Name="Package_Header_Image" ColumnName="Package_Header_Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package_Review">
+      <EntityTypeMapping TypeName="DestCoveryContextModel.Package_Review">
+        <MappingFragment StoreEntitySet="Package_Review">
+          <ScalarProperty Name="Package_Review_Id" ColumnName="Package_Review_Id" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Package_Comment" ColumnName="Package_Comment" />
+          <ScalarProperty Name="Package_Rating" ColumnName="Package_Rating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package_Spots">
+      <EntityTypeMapping TypeName="DestCoveryContextModel.Package_Spots">
+        <MappingFragment StoreEntitySet="Package_Spots">
+          <ScalarProperty Name="Spot_Id" ColumnName="Spot_Id" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="Spot_Name" ColumnName="Spot_Name" />
+          <ScalarProperty Name="Spot_Description" ColumnName="Spot_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package_Tour">
+      <EntityTypeMapping TypeName="DestCoveryContextModel.Package_Tour">
+        <MappingFragment StoreEntitySet="Package_Tour">
+          <ScalarProperty Name="Tour_Id" ColumnName="Tour_Id" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="Tour_Start_Date" ColumnName="Tour_Start_Date" />
+          <ScalarProperty Name="Tour_End_Date" ColumnName="Tour_End_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Info">
+      <EntityTypeMapping TypeName="DestCoveryContextModel.User_Info">
+        <MappingFragment StoreEntitySet="User_Info">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_Image" ColumnName="User_Image" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+          <ScalarProperty Name="User_Address" ColumnName="User_Address" />
+          <ScalarProperty Name="User_Dob" ColumnName="User_Dob" />
+          <ScalarProperty Name="User_Aadhar" ColumnName="User_Aadhar" />
+          <ScalarProperty Name="User_Mobile" ColumnName="User_Mobile" />
+          <ScalarProperty Name="User_Status" ColumnName="User_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
