@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    <link rel="icon" href="~/images/web/logoico.ico" type="image/x-icon" />
+
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <style type="text/css">
+        .bs-example {
+            top: 0px;
+        }
+
+        .fakeimg {
+            height: 100px;
+            background: #aaa;
+        }
+        /* Make the image fully responsive */
+
+        .carousel-inner img {
+            width: 100%;
+            height: 600px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="top: 0px;">
+        <a class="navbar-brand" href="#"><img src="~/images/web/nav-logo.jpg" style="width: 10rem;height: 2rem;" alt="Destcovery"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><b>Home</b><span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>About</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>Our Tours</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>Testimonials</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>Contact Us</b></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="~/Home/login">
+                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Log In</button> 
+            </form>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
