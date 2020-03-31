@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Tours";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model DestCovery.Models.ViewModel
+
+<br />
+<section>
+    <div class="jumbotron" >
+        <h1 style="text-align: center;">Our Tours</h1>
+        <br>
+        <div class="container-fluid">
+            <div class="row text-center justify-content-xl-center">
+                @foreach (var item in Model.package_master_vm.Take(100).Reverse())
+                {
+                    <div class="bg-light col-xl-3 col-sm-12 col-md-6 col-lg-4 ml-3 mb-4 pb-4 border border-dark">
+
+                        <img src="~/@item.Package_Header_Image" class="pt-4 pb-4" width="85%" height="70%" alt="Package1">
+
+                        <h4 class="pb-4"> @item.Package_Name </h4>
+
+                        <a href="TourDetails?packageid=@item.Package_Id&packagename=@item.Package_Name" class="btn btn-primary ">Book Tour</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+@{
+    Html.RenderPartial("footer_view");
+}
+
