@@ -1,0 +1,71 @@
+﻿@model DestCovery.Models.User_Info
+@{
+    ViewBag.Title = "User_Registraion_Form";
+    Layout = "~/Views/Shared/_Layout_login.cshtml";
+}
+
+    <div class="split right">
+        <div class="centered">
+            <div class="wrap1">
+                <center>
+                    <img src="~/images/web/logotran.png" alt="Destcovery-logo" style="width:320px; height:200px;align-content:center" />
+                </center>
+                <h2>REGISTER HERE</h2>
+                <br />
+                @using (Html.BeginForm("User_Registraion_Form", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group">
+                        <label>User Image :</label>@Html.Hidden("User_Image")
+                        <input type="file" name="postedFile" />
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label>Your Name:</label>@Html.TextBoxFor(x => x.User_Name, new { @class = "logintexbox",@required= "true", @autocomplete= "off" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Email:</label>@Html.TextBoxFor(x => x.User_Email, new { @class = "logintexbox",@required = "true", @autocomplete = "off" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Password:</label>@Html.PasswordFor(x => x.User_Password, new { @class = "logintexbox", @required = "true", @autocomplete = "off" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Address:</label>@Html.TextBoxFor(x => x.User_Address, new { @class = "logintexbox", @required = "true", @autocomplete = "off" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Dob:</label>@Html.TextBoxFor(x => x.User_Dob, new { @class = "logintexbox", @required = "true", @autocomplete = "off" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Your Aadhar:</label>@Html.TextBoxFor(x => x.User_Aadhar, new { @class = "logintexbox", @required = "true", @autocomplete = "off" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Mobile:</label>@Html.TextBoxFor(x => x.User_Mobile, new { @class = "logintexbox", @required = "true", @autocomplete = "off" })
+                    </div>
+
+                    <div class="text-center">
+                        <input type="submit" value="Submit" class="loginsubmit" />
+                    </div>
+                }
+                <h4 style="text-align:center;"> Already Member: <a href="login" style="color:white;"> SignIn </a></h4>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type="file"]').change(function (e) {
+                var fileName = e.target.files[0].name;              
+                console.log(fileName);
+                document.getElementById("User_Image").value = "Uploads/user_img/" + fileName;
+            });
+        });
+    </script>
+
+
