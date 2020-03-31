@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tour Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        body {
+            background-image: url('bcg1.jpg');
+            font-family: Arial;
+            margin: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        img {
+            vertical-align: middle;
+        }
+        /* Position the image container (needed to position the left and right arrows) */
+        
+        .container {
+            position: relative;
+        }
+        /* Hide the images by default */
+        
+        .mySlides {
+            display: none;
+        }
+        /* Add a pointer when hovering over the thumbnail images */
+        
+        .cursor {
+            cursor: pointer;
+        }
+        /* Next & previous buttons */
+        
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        /* Position the "next button" to the right */
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        /* On hover, add a black background color with a little bit see-through */
+        
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        /* Number text (1/3 etc) */
+        
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        /* Container for image text */
+        
+        .caption-container {
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Six columns side by side */
+        
+        .column {
+            float: left;
+            width: 20%;
+        }
+        /* Add a transparency effect for thumnbail images */
+        
+        .demo {
+            opacity: 0.6;
+        }
+        
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+        
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <h2 style="color: ghostwhite;">Pune Tour</h2>
+        <br>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#home">Tour Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#menu1">Places Covered</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#menu2">Tour Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#menu3">Customer Reviews</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <h4 style="color: ghostwhite;">Tour Requirements</h4><br>
+                <ul style="list-style-type:disc;color: ghostwhite;">
+                    <li>For Adults - Photo identification in the form of Voters ID / Passport / Aadhar Card / Driving Licence / Ration card</li>
+                    <li>For students - Photo identification in the form of Passport / Aadhar Card / PAN card Carry original as well as 2 photocopies of school or college Photo Identity card</li>
+                    <li>For Infants - Carry 2 passport sized photographs</li>
+                </ul>
+                <br>
+                <h4 style="color: ghostwhite;">Things to Carry</h4><br>
+                <ul style="list-style-type: disc;color: ghostwhite;">
+                    <li>Mobile phone with appropriate sim card</li>
+                    <li>Along with your necessary clothing and toiletries carry sun screen lotion, hand sanitizer, sun glasses, cap, sports shoes, umbrella / windcheater, camera etc. and woollens if needed</li>
+                    <li>If you are on any medication, carry sufficient stock of the medicines with prescription</li>
+                </ul>
+                <br>
+                <h4 style="color: ghostwhite;">Payment Terms</h4><br>
+                <ul style="list-style-type: disc;color: ghostwhite;">
+                    <li>You can pay by Cash/ Cheque / Demand Draft / Debit Card / Credit Card/ Internet Banking /NEFT/ Demand draft </li>
+                </ul>
+            </div>
+            <div id="menu1" class="container tab-pane fade"><br>
+                <h4 style="color: ghostwhite;">Pune</h4>
+                <p style="color: ghostwhite;">Pune is one of the large metropolises of India situated at the confluence of Mula and Mutha rivers. The city is believed to have existed since the 847 AD. Today the city is known for its educational facilities, IT industry and automotive
+                    companies. It is also known as the cultural capital of Maharashtra. Pune has a number of temples, historical sites, museums, zoos and parks. The major attractions in Pune include the circular Nandi Mandapa , Chaturshringi Temple, DagadushethHalwaiGanapati
+                    temple, rock-cut Pataleshwar cave temple, Aga Khan Palace,Shaniwarwada, LalMahal, ShindeChhatri and Sinhagad fort, Raja DinkarKelkar Museum, Mahatma Phule Museum, Dr. BabasahebAmbedkar Museum, Kamala Nehru Park, SarasBaug and Rajiv
+                    Gandhi Zoological Park.</p>
+                <br>
+                <h4 style="color: ghostwhite;">Lonavla & Khandala</h4>
+                <p style="color: ghostwhite;">Lonavala lies 64 km away from the city of Pune and 96 km away from the city of Mumbai. Khandala lies about 3 km from Lonavala. These twin hill stations in the Western Ghats are popular tourist destinations especially during the monsoon
+                    when it turns lush green with waterfalls and ponds. One can experience the enthralling beauty of the Western Ghats at Lonavala and Khandala. Some of the popular tourist spots here are Rajmachi Point, Ryewood Park &ShivajiUdyan, Valvan
+                    Dam, Lonavla Lake, Duke's Nose, Tiger's Leap, Karla Caves, Lohagad Fort, Bushy Dam, Shooting Point and Wax Museum.</p>
+                <br>
+                <h4 style="color: ghostwhite;">Mahabaleshwar</h4>
+                <p style="color: ghostwhite;">Mahabhaleshwar is another beautiful hill station in the Western Ghats. This place is a vast plateau bound by valleys on all its sides and has an average elevation of 1353 m. Mahabhaleshwar is a popular holiday destination and pilgrimage
+                    site for Hindus. The Vena Lake, Arthur’s seat, Kate’s point, Needle Hole point and Wilson point are some of the tourist spots where one can enjoy the scenery and natural beauty of the place. The religious sites in Mahabhaleshwarinclude
+                    Mahabaleshwar Temple, Panchaganga Temple, Shankar Temple and Krishnabai Temple.</p>
+            </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+                <h2 style="text-align:center;color: ghostwhite;">Slideshow Gallery</h2>
+
+                <div class="container">
+                    <div class="mySlides">
+                        <div class="numbertext">1 / 5</div>
+                        <img src="pnq1.jpg" style="width:100%;height: 50%;">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">2 / 5</div>
+                        <img src="pnq2.jpg" style="width:100%;height: 50%;">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">3 / 5</div>
+                        <img src="pnq3.jpg" style="width:100%;height: 50%;">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">4 / 5</div>
+                        <img src="pnq4.jpg" style="width:100%;height: 50%;">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">5 / 5</div>
+                        <img src="pnq5.jpg" style="width:100%;height: 50%;">
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+
+                    <div class="caption-container">
+                        <p id="caption"></p>
+                    </div>
+
+                    <div class="row">
+                        <div class="column">
+                            <img class="demo cursor" src="pnq1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Tiger Point Lonavla">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="pnq2.jpg" style="width:100%;height: 75%;" onclick="currentSlide(2)" alt="Khandala Ghat">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="pnq3.jpg" style="width:100%;height: 75%;" onclick="currentSlide(3)" alt="Mumbai Pune Express Way">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="pnq4.jpg" style="width:100%;height: 75%;" onclick="currentSlide(4)" alt="Elephant's Head Point, Mahabaleshwar">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="pnq5.jpg" style="width:100%;height: 75%;" onclick="currentSlide(5)" alt="Lodwick Point,Mahabaleshwar">
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    var slideIndex = 1;
+                    showSlides(slideIndex);
+
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                        var i;
+                        var slides = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("demo");
+                        var captionText = document.getElementById("caption");
+                        if (n > slides.length) {
+                            slideIndex = 1
+                        }
+                        if (n < 1) {
+                            slideIndex = slides.length
+                        }
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                        captionText.innerHTML = dots[slideIndex - 1].alt;
+                    }
+                </script>
+            </div>
+            <div id="menu3" class="container tab-pane fade"><br>
+                <div class="container" style="border: 2px solid #ccc; background-color: #eee; border-radius: 5px; padding: 16px; margin: 16px 0;">
+                    <img src="cust1.jpg" alt="Avatar" style="width:90px;float: left;margin-right: 20px;border-radius: 50%;">
+                    <p><span style=" font-size: 20px;margin-right: 15px;">AjayKumar Challa</span> Director at Company &nbsp;&nbsp;<span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span></p>
+                    <p>Excellent quality, personalised service, flexible, accommodating, understanding our needs. reliable.</p>
+                </div>
+
+                <div class="container" style="border: 2px solid #ccc; background-color: #eee; border-radius: 5px; padding: 16px; margin: 16px 0;">
+                    <img src="cust2.jpg" alt="Avatar" style="width:90px;float: left;margin-right: 20px;border-radius: 50%;">
+                    <p><span style=" font-size: 20px;margin-right: 15px;">Prasanna Chandorkar</span> CEO at Company &nbsp;&nbsp;<span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span></p>
+                    <p>So far, The Destcovery Team has been excellent with planning our holiday but we won't be able to comment further until we have actually been on our trip and returned.
+                    </p>
+                </div>
+
+                <div class="container" style="border: 2px solid #ccc; background-color: #eee; border-radius: 5px; padding: 16px; margin: 16px 0;">
+                    <img src="cust3.jpg" alt="Avatar" style="width:90px;float: left;margin-right: 20px;border-radius: 50%;">
+                    <p><span style=" font-size: 20px;margin-right: 15px;">Saurabh Kalmegh</span> VP at Company &nbsp;&nbsp;<span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span></p>
+                    <p>A very good personal service with a meeting phone calls to discuss a complex holiday arrangement.My holiday request was dealt with quickly and efficiently by Destcovery.</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            //javascript
+            $(document).ready(function() {
+                $(".nav-tabs a").click(function() {
+                    $(this).tab('show');
+                });
+            });
+        </script>
+
+</body>
+
+</html>
