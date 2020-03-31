@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a7aab8f319da4b28a89fe4d020705cee" Name="Diagram1">
+        <EntityTypeShape EntityType="DestCoveryContextModel.Admin_Info" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DestCoveryContextModel.Booking" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DestCoveryContextModel.Package_Grid_Image" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DestCoveryContextModel.Package_Master" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DestCoveryContextModel.Package_Review" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DestCoveryContextModel.Package_Spots" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DestCoveryContextModel.Package_Tour" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DestCoveryContextModel.User_Info" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="DestCoveryContextModel.FK_dbo_Bookings_dbo_Package_Master_Package_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DestCoveryContextModel.FK_dbo_Bookings_dbo_Package_Spots_fk_for_Spot_Id_Spot_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DestCoveryContextModel.FK_dbo_Bookings_dbo_Package_Tour_Tour_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DestCoveryContextModel.FK_dbo_Package_Grid_Image_dbo_Package_Master_Package_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DestCoveryContextModel.FK_dbo_Package_Review_dbo_Package_Master_Package_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DestCoveryContextModel.FK_dbo_Package_Spots_dbo_Package_Master_Package_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DestCoveryContextModel.FK_dbo_Package_Tour_dbo_Package_Master_Package_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DestCoveryContextModel.FK_dbo_Package_Review_dbo_User_Info_User_Id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DestCoveryContextModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin_Info">
+    <Key>
+      <PropertyRef Name="Admin_Id" />
+    </Key>
+    <Property Name="Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Admin_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Admin_Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Admin_Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Admin_Mobile" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Admin_Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="Booking_Id" />
+    </Key>
+    <Property Name="Booking_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Package_Id" Type="int" Nullable="false" />
+    <Property Name="Tour_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Persons_Enrolled" Type="int" Nullable="false" />
+    <Property Name="Price_Per_Person" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Estimated_Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Booking_Date" Type="datetime" Nullable="false" />
+    <Property Name="Booking_Status" Type="bit" Nullable="false" />
+    <Property Name="fk_for_Spot_Id_Spot_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Package_Grid_Image">
+    <Key>
+      <PropertyRef Name="Package_GridImg_Id" />
+    </Key>
+    <Property Name="Package_GridImg_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Package_Id" Type="int" Nullable="false" />
+    <Property Name="Package_GridImg" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Package_Master">
+    <Key>
+      <PropertyRef Name="Package_Id" />
+    </Key>
+    <Property Name="Package_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Package_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Package_Tagline" Type="nvarchar(max)" />
+    <Property Name="Package_Description" Type="nvarchar(max)" />
+    <Property Name="Package_Price" Type="float" Nullable="false" />
+    <Property Name="Package_Total_Travellers" Type="int" Nullable="false" />
+    <Property Name="Package_Status" Type="bit" Nullable="false" />
+    <Property Name="Package_Header_Image" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Package_Review">
+    <Key>
+      <PropertyRef Name="Package_Review_Id" />
+    </Key>
+    <Property Name="Package_Review_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Package_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Package_Comment" Type="nvarchar(max)" />
+    <Property Name="Package_Rating" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Package_Spots">
+    <Key>
+      <PropertyRef Name="Spot_Id" />
+    </Key>
+    <Property Name="Spot_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Package_Id" Type="int" Nullable="false" />
+    <Property Name="Spot_Name" Type="nvarchar(max)" />
+    <Property Name="Spot_Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Package_Tour">
+    <Key>
+      <PropertyRef Name="Tour_Id" />
+    </Key>
+    <Property Name="Tour_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Package_Id" Type="int" Nullable="false" />
+    <Property Name="Tour_Start_Date" Type="datetime" Nullable="false" />
+    <Property Name="Tour_End_Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Info">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Image" Type="nvarchar(max)" />
+    <Property Name="User_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Address" Type="nvarchar(max)" />
+    <Property Name="User_Dob" Type="datetime" Nullable="false" />
+    <Property Name="User_Aadhar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Mobile" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Bookings_dbo_Package_Master_Package_Id">
+    <End Role="Package_Master" Type="Self.Package_Master" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package_Master">
+        <PropertyRef Name="Package_Id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="Package_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bookings_dbo_Package_Spots_fk_for_Spot_Id_Spot_Id">
+    <End Role="Package_Spots" Type="Self.Package_Spots" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package_Spots">
+        <PropertyRef Name="Spot_Id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="fk_for_Spot_Id_Spot_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bookings_dbo_Package_Tour_Tour_Id">
+    <End Role="Package_Tour" Type="Self.Package_Tour" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package_Tour">
+        <PropertyRef Name="Tour_Id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="Tour_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Package_Grid_Image_dbo_Package_Master_Package_Id">
+    <End Role="Package_Master" Type="Self.Package_Master" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Package_Grid_Image" Type="Self.Package_Grid_Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package_Master">
+        <PropertyRef Name="Package_Id" />
+      </Principal>
+      <Dependent Role="Package_Grid_Image">
+        <PropertyRef Name="Package_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Package_Review_dbo_Package_Master_Package_Id">
+    <End Role="Package_Master" Type="Self.Package_Master" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Package_Review" Type="Self.Package_Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package_Master">
+        <PropertyRef Name="Package_Id" />
+      </Principal>
+      <Dependent Role="Package_Review">
+        <PropertyRef Name="Package_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Package_Review_dbo_User_Info_User_Id">
+    <End Role="User_Info" Type="Self.User_Info" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Package_Review" Type="Self.Package_Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Info">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Package_Review">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Package_Spots_dbo_Package_Master_Package_Id">
+    <End Role="Package_Master" Type="Self.Package_Master" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Package_Spots" Type="Self.Package_Spots" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package_Master">
+        <PropertyRef Name="Package_Id" />
+      </Principal>
+      <Dependent Role="Package_Spots">
+        <PropertyRef Name="Package_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Package_Tour_dbo_Package_Master_Package_Id">
+    <End Role="Package_Master" Type="Self.Package_Master" Multiplicity="1" />
+    <End Role="Package_Tour" Type="Self.Package_Tour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package_Master">
+        <PropertyRef Name="Package_Id" />
+      </Principal>
+      <Dependent Role="Package_Tour">
+        <PropertyRef Name="Package_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DestCoveryContextModelStoreContainer">
+    <EntitySet Name="Admin_Info" EntityType="Self.Admin_Info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package_Grid_Image" EntityType="Self.Package_Grid_Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package_Master" EntityType="Self.Package_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package_Review" EntityType="Self.Package_Review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package_Spots" EntityType="Self.Package_Spots" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package_Tour" EntityType="Self.Package_Tour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Info" EntityType="Self.User_Info" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Bookings_dbo_Package_Master_Package_Id" Association="Self.FK_dbo_Bookings_dbo_Package_Master_Package_Id">
+      <End Role="Package_Master" EntitySet="Package_Master" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bookings_dbo_Package_Spots_fk_for_Spot_Id_Spot_Id" Association="Self.FK_dbo_Bookings_dbo_Package_Spots_fk_for_Spot_Id_Spot_Id">
+      <End Role="Package_Spots" EntitySet="Package_Spots" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bookings_dbo_Package_Tour_Tour_Id" Association="Self.FK_dbo_Bookings_dbo_Package_Tour_Tour_Id">
+      <End Role="Package_Tour" EntitySet="Package_Tour" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Package_Grid_Image_dbo_Package_Master_Package_Id" Association="Self.FK_dbo_Package_Grid_Image_dbo_Package_Master_Package_Id">
+      <End Role="Package_Master" EntitySet="Package_Master" />
+      <End Role="Package_Grid_Image" EntitySet="Package_Grid_Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Package_Review_dbo_Package_Master_Package_Id" Association="Self.FK_dbo_Package_Review_dbo_Package_Master_Package_Id">
+      <End Role="Package_Master" EntitySet="Package_Master" />
+      <End Role="Package_Review" EntitySet="Package_Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Package_Review_dbo_User_Info_User_Id" Association="Self.FK_dbo_Package_Review_dbo_User_Info_User_Id">
+      <End Role="User_Info" EntitySet="User_Info" />
+      <End Role="Package_Review" EntitySet="Package_Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Package_Spots_dbo_Package_Master_Package_Id" Association="Self.FK_dbo_Package_Spots_dbo_Package_Master_Package_Id">
+      <End Role="Package_Master" EntitySet="Package_Master" />
+      <End Role="Package_Spots" EntitySet="Package_Spots" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Package_Tour_dbo_Package_Master_Package_Id" Association="Self.FK_dbo_Package_Tour_dbo_Package_Master_Package_Id">
+      <End Role="Package_Master" EntitySet="Package_Master" />
+      <End Role="Package_Tour" EntitySet="Package_Tour" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
