@@ -1,0 +1,56 @@
+﻿@model DestCovery.Models.Package_Grid_Image
+@{
+    ViewBag.Title = "AddPackageImages";
+    Layout = "~/Views/Shared/_Layout_admin_dashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-8">
+        <h2> @ViewBag.PACKAGENAME <small> (package)</small> </h2>
+    </div>
+    <div class="col-xs-4 text-right">
+        <h2></h2>
+        <h2> <small> Add Package Images </small> </h2>
+    </div>
+</div>
+<br />
+<div class="row">
+    @using (Html.BeginForm("AddPackageImages", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Id </label>
+                @Html.TextBoxFor(x => x.Package_Id, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Name" , @Value = @ViewBag.PACKAGEID, @readonly = "true" })
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Image </label>
+                <!-- Hidden TextBox -->
+                @Html.Hidden("Package_GridImg")
+                <input type="file" name="postedFile" />
+            </div>
+        </div>
+
+        
+
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Submit </label>
+                <input type="submit" value="Submit" class="btn btn-primary btn-block btn-dark" />
+            </div>
+        </div>
+
+    }
+</div>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type="file"]').change(function (e) {
+                var fileName = e.target.files[0].name;
+                console.log(fileName);
+                document.getElementById("Package_GridImg").value = "Uploads/package_img/" + fileName;
+            });
+        });
+</script>
+
