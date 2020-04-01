@@ -1,0 +1,61 @@
+﻿@model SeminarInvitesMVC.GuestResponse 
+@{
+    ViewBag.Title = "Register";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width-device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/Styles.css" rel="stylesheet"/>
+    <title>Index</title>
+</head>
+<body style="background-color:burlywood">
+    <div class="abc">
+        <div class="panel panel-primary" style="width:50%;">
+            <div class="panel-heading text-center"><h4>REGISTER</h4></div>
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm())
+            {
+                    @Html.ValidationSummary()
+                    <div class="form-group">
+                        <label>Your Name:</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Your Phone:</label>
+                        @Html.TextBoxFor(x => x.phone, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>will you attend?</label>
+                        @Html.DropDownListFor(x => x.willAttend, new[]{
+           new SelectListItem(){Text="Yes,I will be there",Value=bool.TrueString},
+           new SelectListItem(){Text="No,I can't come",Value=bool.FalseString}
+       }, "Choose an option", new { @class = "form-control" })
+                    </div>
+                    <br />
+                    <div class="text-center">
+                        <input type="submit" value="Submit" class="btn btn-success" />
+                    </div>
+                    <button onclick="submitForm()" class="btn btn-success">Submit Form</button>
+                    <script>
+                        function submitForm() {
+                            if (confirm("are you sure to submit form")) {
+                                var frm = document.getElementsByTagName("form");
+                                frm[0].submit();
+                            }
+                        }
+                    </script>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

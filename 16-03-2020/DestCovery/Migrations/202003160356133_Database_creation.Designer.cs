@@ -7,6 +7,10 @@ namespace DestCovery.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:16-03-2020/DestCovery/Migrations/202003160356133_Database_creation.Designer.cs
+>>>>>>> b980cdffc0852aa8d5ba2c5e37ea4ac8af2727a1
     public sealed partial class Database_creation : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(Database_creation));
@@ -14,6 +18,18 @@ namespace DestCovery.Migrations
         string IMigrationMetadata.Id
         {
             get { return "202003160356133_Database_creation"; }
+<<<<<<< HEAD
+=======
+=======
+    public sealed partial class Migration : IMigrationMetadata
+    {
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Migration));
+        
+        string IMigrationMetadata.Id
+        {
+            get { return "202003160444084_Migration"; }
+>>>>>>> cf03d1cbbe5c4854f254ac9cac394452dd690fa9:DestCovery/DestCovery/Migrations/202003160444084_Migration.Designer.cs
+>>>>>>> b980cdffc0852aa8d5ba2c5e37ea4ac8af2727a1
         }
         
         string IMigrationMetadata.Source

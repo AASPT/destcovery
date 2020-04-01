@@ -139,6 +139,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD:WebApiDemo/WebApplication1/WebApplication1/WebApplication1.csproj
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,6 +157,11 @@
     </Compile>
     <Compile Include="Models\WebApiEmp.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+=======
+    <Compile Include="Migrations\202003160444084_Migration.cs" />
+    <Compile Include="Migrations\202003160444084_Migration.Designer.cs">
+      <DependentUpon>202003160444084_Migration.cs</DependentUpon>
+>>>>>>> cf03d1cbbe5c4854f254ac9cac394452dd690fa9:DestCovery/DestCovery/DestCovery.csproj
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -181,7 +187,17 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+<<<<<<< HEAD:WebApiDemo/WebApplication1/WebApplication1/WebApplication1.csproj
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+=======
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003160444084_Migration.resx">
+      <DependentUpon>202003160444084_Migration.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> cf03d1cbbe5c4854f254ac9cac394452dd690fa9:DestCovery/DestCovery/DestCovery.csproj
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
