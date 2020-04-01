@@ -1,0 +1,251 @@
+﻿@model DestCovery.Models.ViewModel
+
+@{
+    ViewBag.Title = "TourDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-image: url('../../images/web/bcg1.jpg');
+        font-family: Arial;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    img {
+        vertical-align: middle;
+    }
+    /* Position the image container (needed to position the left and right arrows) */
+
+    .container {
+        position: relative;
+    }
+    /* Hide the images by default */
+
+    .mySlides {
+        display: none;
+    }
+    /* Add a pointer when hovering over the thumbnail images */
+
+    .cursor {
+        cursor: pointer;
+    }
+    /* Next & previous buttons */
+
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    /* Position the "next button" to the right */
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+        /* On hover, add a black background color with a little bit see-through */
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    /* Number text (1/3 etc) */
+
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+    /* Container for image text */
+
+    .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Six columns side by side */
+
+    .column {
+        float: left;
+        width: 20%;
+    }
+    /* Add a transparency effect for thumnbail images */
+
+    .demo {
+        opacity: 0.6;
+    }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+
+    .checked {
+        color: orange;
+    }
+</style>
+
+    <br />
+   <br /><br />
+
+
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-8">
+                <h2 style="color: ghostwhite;"> @ViewBag.PACKAGENAMET </h2>
+                @foreach (var item in Model.package_master_vm)
+                {
+                    <h5 style="color: ghostwhite;"> <small> @item.Package_Tagline </small></h5>
+                }
+            </div>
+            <div class="col-4 text-right">
+                <h2></h2>
+                <a href="check?packageid=@ViewBag.PACKAGEIDT&packagename=@ViewBag.PACKAGENAMET"> <button class="btn btn-primary btn-lg"> Book Now </button> </a>
+            </div>
+            
+            
+        </div>
+        
+        <br>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#home">Tour Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#menu1">Places Covered</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#menu2">Tour Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#menu3">Customer Reviews</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div id="home" class="container bg-light tab-pane active">
+                <br>
+                <h4>Tour Dates</h4><br>
+                    <ul style="list-style-type:disc;">
+                        @foreach (var items in Model.package_tour_vm)
+                        {
+                            <li> Start - @items.Tour_Start_Date : End - @items.Tour_End_Date </li>
+                        }
+                    </ul>
+                <br>
+                <h4> Description </h4><br>
+                    <ul style="list-style-type: disc;">
+                        @foreach (var items in Model.package_master_vm)
+                        {
+                            <li> @items.Package_Description </li>
+                        }
+
+                    </ul>
+                <br>
+                <h4> Package Price </h4><br>
+                    <ul style="list-style-type: disc;">
+                        @foreach (var items in Model.package_master_vm)
+                        {
+                            <li> @items.Package_Price /person </li>
+                            <li> Total Traveller Till Date : @items.Package_Total_Travellers </li>
+                        }
+
+                    </ul>
+                <br>
+                <h4 >Payment Terms</h4><br>
+                <ul style="list-style-type: disc;">
+                    <li>You can pay by Cash/ Cheque / Demand Draft / Debit Card / Credit Card/ Internet Banking /NEFT/ Demand draft </li>
+                </ul>
+                <br />
+            </div>
+            <div id="menu1" class="container bg-light tab-pane fade">
+                <br>
+                @foreach (var items in Model.package_spots_vm)
+                {
+                    <h4 > @items.Spot_Name </h4>
+                    <p >
+                       @items.Spot_Description
+                    </p>
+                }
+                <br />
+            </div>
+            <div id="menu2" class="container bg-light tab-pane fade">
+                <br>  
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        @foreach (var items in Model.package_grid_vm)
+                        {
+                            <div class=" col-4 ml-3 mb-3 ">
+                                <img src="~/@items.Package_GridImg" class="border border-dark"  width="100%" height="auto"/>
+                            </div>
+                        }
+                    </div>   
+                </div>              
+            </div>
+            <div id="menu3" class="container bg-light tab-pane fade">
+                <br>
+                @foreach (var items in Model.package_review_vm)
+                {
+                    foreach (var item in Model.user_info_vm.Where(x => x.User_Id == items.User_Id))
+                    {
+                        <div class="container" style="border: 2px solid #ccc; background-color: #eee; border-radius: 5px; padding: 16px; margin: 16px 0;">
+                            <img src="~/@item.User_Image" alt="Avatar" style="width:90px;float: left;margin-right: 20px;border-radius: 50%;">
+                            <p>
+                                <span style=" font-size: 20px;margin-right: 15px;"> @item.User_Name </span> Director at Company &nbsp;&nbsp;
+                                <span class="fa fa-home bg-dark"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                            </p>
+                            <p> @items.Package_Comment </p>
+                        </div>
+                    }
+
+                }
+
+
+
+
+
+                <br />
+            </div>
+        </div>
+
+        <script>
+            //javascript
+            $(document).ready(function () {
+                $(".nav-tabs a").click(function () {
+                    $(this).tab('show');
+                });
+            });
+        </script>
+
+
+
