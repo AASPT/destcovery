@@ -1,0 +1,83 @@
+﻿@model DestCovery.Models.ViewModel
+
+@{
+    ViewBag.Title = "Bookings";
+    Layout = "~/Views/Shared/_Layout_user_dashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-10">
+        <h2>Booking History </h2>
+    </div>
+    <div class="col-xs-2 text-center">
+        <h2></h2>
+        
+    </div>
+</div>
+<br />
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th> Package </th>
+            <th> Tour Dates </th>
+            <th> Person Enroll </th>
+            <th> Price /person </th>
+            <th> Estimated Price </th>
+            <th> Booking Date </th>
+            <th> Booking Status </th>
+            <th> Review </th>
+            <th> Cancel </th>
+        </tr>
+
+        @foreach (var items in Model.booking_vm.Take(1000).Reverse())
+        {
+            foreach (var item in Model.package_master_vm.Where(x => x.Package_Id == items.Package_Id))
+            {
+                foreach (var t in Model.package_tour_vm.Where(x => x.Tour_Id == items.Tour_Id))
+                {
+                    foreach (var review in Model.package_review_vm)
+                    {
+                        <tr>
+                            <td> @item.Package_Name </td>
+                            <td> @t.Tour_Start_Date - @t.Tour_End_Date </td>
+                            <td> @items.Persons_Enrolled </td>
+                            <td> @items.Price_Per_Person </td>
+                            <td> @items.Estimated_Price </td>
+                            <td> @items.Booking_Date </td>
+
+                            <td>
+                                @if (items.Booking_Status == "pending")
+                                {
+                                    <p> Pending </p>
+                                }
+                                else if (items.Booking_Status == "User Cancelled")
+                                {
+                                    <p> User Cancel </p>
+                                }
+
+                            </td>
+                            <td>
+                                @if (items.Booking_Status != "User Cancelled")
+                                {
+                                    @if (review.Package_Comment == null)
+                                    {
+                                        <a href="~/Home/AddReview?packageid=@items.Package_Id&packagename=@item.Package_Name" class="btn btn-primary" > Add Review </a>
+                                    }
+                                }
+                            </td>
+                            <td> 
+                                @if (items.Booking_Status != "User Cancelled")
+                                {
+                                    <a href="~/Home/BookingCancel?bookingid=@items.Booking_Id" class="btn btn-primary" onclick="return confirm('Are you sure you Want to Cancel the Booking')"> Cancel Booking </a>
+                                }
+                            </td>
+            
+                        </tr>
+                    }
+                }
+            }
+
+        }
+            </table>
+</div>
+
