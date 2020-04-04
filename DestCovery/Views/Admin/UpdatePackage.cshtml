@@ -1,0 +1,47 @@
+﻿@model DestCovery.Models.Package_Master
+
+@{
+    ViewBag.Title = "UpdatePackage";
+    Layout = "~/Views/Shared/_Layout_admin_dashboard.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+<div class="form-horizontal">
+    <h4>Update Package Spot</h4>
+    <hr />
+
+    @Html.HiddenFor(model => model.Package_Id)
+
+    <div class="form-group">
+        @Html.Label("Package TagLine", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Package_Tagline, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Package Description", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Package_Description, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Package Price", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Package_Price, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+

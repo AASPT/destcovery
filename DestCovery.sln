@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.1022
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestCovery", "DestCovery\DestCovery.csproj", "{5BF206A2-695A-4F89-8DBE-40D53BF3EE8E}"
 EndProject
+<<<<<<< HEAD
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestcoveryTest", "DestcoveryTest\DestcoveryTest.csproj", "{832F729C-5A40-41A2-8391-0D8FE6E18F0B}"
+EndProject
+>>>>>>> da682be589d762ed28bab370e43fc29249f7a418
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,13 @@ Global
 		{5BF206A2-695A-4F89-8DBE-40D53BF3EE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BF206A2-695A-4F89-8DBE-40D53BF3EE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BF206A2-695A-4F89-8DBE-40D53BF3EE8E}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+=======
+		{832F729C-5A40-41A2-8391-0D8FE6E18F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832F729C-5A40-41A2-8391-0D8FE6E18F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832F729C-5A40-41A2-8391-0D8FE6E18F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832F729C-5A40-41A2-8391-0D8FE6E18F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> da682be589d762ed28bab370e43fc29249f7a418
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

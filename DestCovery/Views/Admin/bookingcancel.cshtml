@@ -1,0 +1,54 @@
+﻿@model DestCovery.Models.ViewModel
+
+@{
+    ViewBag.Title = "bookingcancel";
+    Layout = "~/Views/Shared/_Layout_admin_dashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-10">
+        <h2>Booking Cancel </h2>
+    </div>
+    <div class="col-xs-2 text-center">
+        <h2></h2>
+
+    </div>
+</div>
+<br />
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th> Package Name </th>
+            <th> Tour </th>
+            <th> User Name </th>
+            <th> Person Enrolled </th>
+            <th> Estimated Price </th>
+            <th> Booking Date </th>
+            <th> Booking Status </th>
+        </tr>
+
+
+        @foreach (var items in Model.booking_vm.Take(5000).Reverse())
+        {
+            foreach (var item in Model.package_master_vm.Where(x => x.Package_Id == items.Package_Id))
+            {
+                foreach (var t in Model.package_tour_vm.Where(x => x.Tour_Id == items.Tour_Id))
+                {
+                    foreach (var u in Model.user_info_vm.Where(x => x.User_Id == items.User_Id))
+                    {
+                        <tr>
+                            <td> @item.Package_Name </td>
+                            <td> @t.Tour_Start_Date - @t.Tour_End_Date </td>
+                            <td> @u.User_Name </td>
+                            <td> @items.Persons_Enrolled </td>
+                            <td> @items.Estimated_Price </td>
+                            <td> @items.Booking_Date </td>
+                            <td> @items.Booking_Status </td>
+                        </tr>
+                    }
+                }
+            }
+        }
+    </table>
+</div>
+

@@ -1,0 +1,80 @@
+﻿@model DestCovery.Models.Package_Master
+@{
+    ViewBag.Title = "AddPackage";
+    Layout = "~/Views/Shared/_Layout_admin_dashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-10">
+        <h2>Add Package</h2>
+    </div>
+    <div class="col-xs-2">
+        <h2></h2>
+        <a href="TotalPackage" class="btn btn-primary float-right">  Total Package  </a>
+    </div>
+</div>
+
+<br />
+<div class="row">
+    @using (Html.BeginForm("AddPackage", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Name </label>
+                @Html.TextBoxFor(x => x.Package_Name, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Name" })
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package TagLine</label>
+                @Html.TextBoxFor(x => x.Package_Tagline, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package TagLine" })
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Description</label>
+                @Html.TextAreaFor(x => x.Package_Description, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Description" })
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Price </label>
+                @Html.TextBoxFor(x => x.Package_Price, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Price" })
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Image </label>
+                <!-- Hidden TextBox -->
+                @Html.Hidden("Package_Header_Image")
+                <input type="file" name="postedFile" />
+            </div>
+        </div>
+
+        <div class="col-xs-8">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Submit </label>
+                <input type="submit" value="Submit" class="btn btn-primary btn-block btn-dark" />
+            </div>
+        </div>
+
+    }
+</div>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type="file"]').change(function (e) {
+                var fileName = e.target.files[0].name;
+                console.log(fileName);
+                document.getElementById("Package_Header_Image").value = "Uploads/package_img/" + fileName;
+            });
+        });
+</script>
+
+
+
+
