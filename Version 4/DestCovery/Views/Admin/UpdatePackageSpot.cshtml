@@ -1,0 +1,41 @@
+﻿@model DestCovery.Models.Package_Spots
+
+@{
+    ViewBag.Title = "UpdatePackageSpot";
+    Layout = "~/Views/Shared/_Layout_admin_dashboard.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-horizontal">
+        <h4>Update Package Spot</h4>
+        <hr />
+
+        @Html.HiddenFor(model => model.Spot_Id)
+
+        <div class="form-group">
+            @Html.Label("Spot Name", htmlAttributes: new { @class = "control-label col-md-2" } )
+           
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Spot_Name, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Spot Description", htmlAttributes: new { @class = "control-label col-md-2" })
+           
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Spot_Description, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
