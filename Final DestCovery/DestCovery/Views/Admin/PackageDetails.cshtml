@@ -1,0 +1,179 @@
+﻿
+@model  DestCovery.Models.ViewModel
+
+@{
+    ViewBag.Title = "DestCovery - PackageDetails";
+    Layout = "~/Views/Shared/_Layout_admin_dashboard.cshtml";
+}
+
+<style>
+    span {
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+    }
+
+    img{
+        width:60px;
+        height:60px;
+        display: inline-block;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-10">
+        <h2> @ViewBag.PACKAGENAME  <small> (package) </small>  </h2>
+    </div>
+    <div class="col-xs-2">
+        <h1></h1>
+        <h2> <small> Package Details   </small> </h2>
+    </div>
+</div>
+<br />
+
+<!-- Package Details -->
+
+<div class="row">
+    <div class="col-xs-10">
+        <h4> <b> Package Details </b> </h4>
+    </div>
+    <div class="col-xs-2 text-right">
+        <a href="~/Admin/UpdatePackage?packageid=@ViewBag.PACKAGEID&packagename=@ViewBag.PACKAGENAME" class="btn btn-primary btn-sm fa fa-pencil">  </a>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th> Package Name </th>
+            <th> Package TagLine </th>
+            <th> Package Description </th>
+            <th> Package Price </th>
+            <th> Status </th>         
+        </tr>
+        @foreach (var item in Model.package_master_vm)
+        {
+            <tr>
+                <td> @item.Package_Name </td>
+                <td> @item.Package_Tagline </td>
+                <td> @item.Package_Description </td>
+                <td> @item.Package_Price </td>
+                <td> @item.Package_Status </td>        
+            </tr>
+        }
+    </table>
+</div>
+<br />
+
+<!-- Package Tour Details -->
+
+<div class="row">
+    <div class="col-xs-10">
+        <h4> <b> Package Tour Details </b> </h4>
+    </div>
+    <div class="col-xs-2 text-right">
+        <a href="~/Admin/AddPackageTour?packageid=@ViewBag.PACKAGEID&packagename=@ViewBag.PACKAGENAME" class="btn btn-primary btn-sm">  Add Tour  </a> 
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th> Tour Start Date</th>
+            <th> Tour End Date</th>
+            
+            <th> Delete </th>
+        </tr>
+        @foreach (var item in Model.package_tour_vm.Take(100).Reverse())
+        {
+        <tr>
+            <td> @item.Tour_Start_Date </td>
+            <td> @item.Tour_End_Date </td>           
+            <td class="text-center"> <a href="~/Admin/DeleteTour?tourid=@item.Tour_Id&packageid=@ViewBag.PACKAGEID&packagename=@ViewBag.PACKAGENAME" class="btn btn-danger btn-sm fa fa-trash" onclick="return confirm('Are you sure you Want to Delete this Tour')"> </a> </td>
+        </tr>
+        }
+    </table>
+</div>
+<br />
+
+<!-- Package Spots Details -->
+
+<div class="row">
+    <div class="col-xs-10">
+        <h4> <b> Package Spots Details </b> </h4>
+    </div>
+    <div class="col-xs-2 text-right">
+        <a href="~/Admin/AddPackageSpot?packageid=@ViewBag.PACKAGEID&packagename=@ViewBag.PACKAGENAME" class="btn btn-primary btn-sm">  Add Spots  </a> 
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th> Spot Name </th>
+            <th> Spot Description </th>
+            <th> Delete </th>
+            <th> Edit </th>
+        </tr>
+        @foreach (var item in Model.package_spots_vm)
+        { 
+            <tr>
+                <td> @item.Spot_Name </td>
+                <td> @item.Spot_Description </td>
+                <td class="text-center"> <a href="~/Admin/DeleteSpot?spotid=@item.Spot_Id&packageid=@ViewBag.PACKAGEID&packagename=@ViewBag.PACKAGENAME" class="btn btn-danger btn-sm fa fa-trash" onclick="return confirm('Are you sure you Want to Delete this Tour Spot')"> </a> </td>
+                <td class="text-center"> <a href="~/Admin/UpdatePackageSpot?spotid=@item.Spot_Id&packageid=@ViewBag.PACKAGEID&packagename=@ViewBag.PACKAGENAME" class="btn btn-primary btn-sm fa fa-pencil">  </a> </td>
+            </tr>
+        }
+    </table>
+</div>
+<br />
+
+<!-- Package Images  -->
+
+<div class="row">
+    <div class="col-xs-10">
+        <h4> <b> Package Images </b> </h4>
+    </div>
+    <div class="col-xs-2 text-right">
+        <a href="AddPackageImages?packageid=@ViewBag.PACKAGEID&packagename=@ViewBag.PACKAGENAME" class="btn btn-primary btn-sm">  Add Images </a>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <tr>
+            @foreach (var item in Model.package_grid_vm.Take(5).Reverse())
+            {
+                <td class="text-center"> <span class="bg-info"> <img src="~/@item.Package_GridImg" width="50%" height="auto" /> </span> <br /><br /> <a href="~/Admin/DeleteImage?imageid=@item.Package_GridImg_Id&packageid=@ViewBag.PACKAGEID&packagename=@ViewBag.PACKAGENAME" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you Want to Delete this Image')"> Delete </a> </td>
+            }
+        </tr>
+        </table>
+</div>
+<br />
+
+<!-- Package Reviews -->
+
+<div class="row">
+    <div class="col-xs-10">
+        <h4> <b> Package Reviews </b> </h4>
+    </div>
+    <div class="col-xs-2 text-right">
+        <h4> Top 5 Reviews </h4>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th> UserId </th>
+            <th> Comments </th>
+            <th> Ratings </th>
+        </tr>
+        @foreach (var item in Model.package_review_vm.Take(5).Reverse())
+        {
+            <tr>
+                <td> @item.User_Id </td>
+                <td> @item.Package_Comment </td>
+                <td> @item.Package_Rating </td>
+            </tr>
+        }
+    </table>
+</div>
+<br />
+
+

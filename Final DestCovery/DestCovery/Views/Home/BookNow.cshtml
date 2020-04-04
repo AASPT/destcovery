@@ -1,0 +1,77 @@
+﻿@model DestCovery.Models.Bookings
+@{
+    ViewBag.Title = "BookNow";
+    Layout = "~/Views/Shared/_Layout_user_dashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-10">
+        <h2> @ViewBag.PACKAGENAMET </h2>
+    </div>
+    <div class="col-xs-2">
+        <h2></h2>
+        <h3> <small> Package Booking </small></h3>
+    </div>
+</div>
+
+<br />
+<h5 class="text-danger"> Note : Final Submit Will Confirm Your Booking </h5>
+
+<br />
+<div class="row">
+    @using (Html.BeginForm("BookNow", "Home", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.Package_Id, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Name", @Value = @ViewBag.PACKAGEIDT })
+        @Html.HiddenFor(x => x.User_Id, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Name", @Value = @Session["UserID"] })
+        @Html.HiddenFor(x => x.Tour_Id, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Name", @Value = @ViewBag.PACKAGETOURIDT })
+        @Html.HiddenFor(x => x.Price_Per_Person, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Name", @Value = @ViewBag.PACKAGEPRICET, @id = "priceperperson" })
+        @Html.HiddenFor(x => x.Booking_Status, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Name", @Value="pending" })
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Enter Person Enrolling in Tours </label>
+                @Html.TextBoxFor(x => x.Persons_Enrolled, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Person Enrolling in Tours", @id = "personenroll" })
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Total Estimated Price </label>
+                @Html.TextBoxFor(x => x.Estimated_Price, new { @class = "form-control", @required = "true", @autocomplete = "off", @id = "estimatedprice", @readonly = "true" })
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Booking Date </label>
+                @Html.TextBoxFor(x => x.Booking_Date, new { @class = "form-control", @required = "true", @autocomplete = "off",@type="date" })
+            </div>
+        </div>
+
+
+        <div class="col-xs-8">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Confirm Booking </label>
+                <input type="submit" value="Confirm Booking" class="btn btn-primary btn-block btn-dark" />
+            </div>
+        </div>
+
+    }
+</div>
+
+<script type="text/javascript" >
+    $(document).ready(function () {
+        $('input[type="text"]').on('input', function (e)
+        {
+            var price_per_person = parseInt(document.getElementById("priceperperson").value);
+            var personenroll = parseInt(document.getElementById("personenroll").value);
+            
+            document.getElementById("estimatedprice").value = price_per_person * personenroll;
+                  
+        });
+    });
+</script>
+
