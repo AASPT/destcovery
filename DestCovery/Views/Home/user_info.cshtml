@@ -1,0 +1,77 @@
+﻿@model DestCovery.Models.ViewModel
+
+@{
+    ViewBag.Title = "user_info";
+    Layout = "~/Views/Shared/_Layout_user_dashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-10">
+        @foreach (var items in Model.user_info_vm)
+        {
+            <h2><img src="~/@items.User_Image"  width="10%" height="auto"/> <strong> &nbsp; @items.User_Name </strong>  </h2>
+        }
+
+    </div>
+    <div class="col-xs-2">
+        <h2></h2>
+        <h3 class="text-center"> <small> User Information  <br /> <a href="~/Home/change_password" class="btn btn-primary"> Change Password </a></small></h3>
+    </div>
+</div>
+<br />
+<div class="row">
+    <hr />
+    @foreach (var items in Model.user_info_vm)
+    {
+       
+    <table style="width:100%;" border="1">
+        <tr >
+            <td style="padding-top:2%;padding-bottom:2%">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <h4>
+                            <label for="exampleInputEmail1"> User Email ID : </label> &nbsp;
+                            @items.User_Email
+                        </h4>
+                    </div>
+                </div>
+            </td>
+            <td style="padding-top:2%;padding-bottom:2%">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <h4>
+                            <label for="exampleInputEmail1"> User Address : </label> &nbsp;
+                            @items.User_Address
+                        </h4>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-top:2%;padding-bottom:2%">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <h4>
+                            <label for="exampleInputEmail1"> User Aadhar : </label>
+                            @items.User_Aadhar
+                        </h4>
+                    </div>
+                </div>
+            </td>
+            <td style="padding-top:2%;padding-bottom:2%">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <h4>
+                            <label for="exampleInputEmail1"> User Mobile : </label>
+                            @items.User_Mobile
+                        </h4>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    }
+
+</div>
+
+

@@ -1,0 +1,64 @@
+﻿@model DestCovery.Models.Package_Review
+
+@{
+    ViewBag.Title = "AddReview";
+    Layout = "~/Views/Shared/_Layout_user_dashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-10">
+        <h2> @ViewBag.PACKAGENAMET </h2>
+    </div>
+    <div class="col-xs-2">
+        <h2></h2>
+        <h3> <small> Share Reviews </small></h3>
+    </div>
+</div>
+
+<br />
+<div class="row">
+    @using (Html.BeginForm("AddReview", "Home", FormMethod.Post))
+    {
+        int user__id = Convert.ToInt32(Session["UserID"]);
+
+        @Html.HiddenFor(x => x.User_Id, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Name", @Value = @user__id })
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Id </label>
+                @Html.TextBoxFor(x => x.Package_Id, new { @class = "form-control", @required = "true", @autocomplete = "off", @Value = @ViewBag.PACKAGEIDT, @readonly = "true" })
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Rating (Out of 5) </label>
+                @Html.TextBoxFor(x => x.Package_Rating, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Rating " })
+
+                
+
+
+
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Package Comments </label>
+                @Html.TextAreaFor(x => x.Package_Comment, new { @class = "form-control", @required = "true", @autocomplete = "off", @placeholder = "Enter Package Comments " })
+            </div>
+        </div>
+
+        <div class="col-xs-8">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Submit Review </label>
+                <input type="submit" value="Submit Review" onclick="return confirm('Are you sure you Want to Add this Review')" class="btn btn-primary btn-block btn-dark" />
+            </div>
+        </div>
+    }
+</div>
+

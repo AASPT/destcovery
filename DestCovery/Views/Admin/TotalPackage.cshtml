@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DestCovery.Models.Package_Master>
+@{
+    ViewBag.Title = "TotalPackage";
+    Layout = "~/Views/Shared/_Layout_admin_dashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-10">
+        <h2>Total Package </h2>
+    </div>
+    <div class="col-xs-2 text-center">
+        <h2></h2>
+        <a href="AddPackage"><button class="btn btn-primary fa fa-plus"> Add Package </button></a>
+    </div>
+</div>
+<br />
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th> Package Id </th>
+            <th> Package Name </th>
+            <th> Package TagLine </th>
+            <th> Package Description </th>
+            <th> Package Price </th>
+            <th> Status </th>
+            <th> Package Details </th>
+           
+        </tr>
+        @foreach (var item in Model.Reverse())
+        {
+            var Package__id = item.Package_Id;
+            var Package__name = item.Package_Name;
+
+        <tr>
+            <td>   @Html.DisplayFor(modelItem => item.Package_Id) </td>
+            <td> @Html.DisplayFor(modelItem12 => item.Package_Name) </td>
+            <td> @Html.DisplayFor(modelItem => item.Package_Tagline) </td>
+            <td> @Html.DisplayFor(modelItem => item.Package_Description) </td>
+            <td> @Html.DisplayFor(modelItem => item.Package_Price) </td>
+            <td>
+                @if (item.Package_Status == "deactive")
+                {
+                    <p> Deactive </p>
+                }
+                else
+                {
+                    <p> Active </p>
+                }
+            </td>
+            <td class="text-center"> <a href="PackageDetails?packageid=@Package__id&packagename=@Package__name"  ><button class="btn btn-primary"> Package Details</button></a> </td> 
+           
+        </tr>
+        }
+    </table>
+</div>
+
+
